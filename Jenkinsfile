@@ -15,5 +15,13 @@ pipeline {
                 """
 	    }
         }
+	stage ('build docker images') {
+	    agent {
+		docker { image 'yuferov/ci-cd-exam:webcalc-v1' }
+	    }
+	    steps {
+		echo 'Build complete'
+	    }
+	}
     }
 }
