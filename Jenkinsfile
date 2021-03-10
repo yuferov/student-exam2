@@ -8,9 +8,14 @@ pipeline {
                 sh """
                 python3 -m venv venv
                 . venv/bin/activate
-                pwd
+                pip install -e .
                 """
             }
+	    steps {
+		pip install -e '.[test]'
+		coverage run -m pytest
+		coverage report
+	    }
         }
     }
 }
