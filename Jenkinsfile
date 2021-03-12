@@ -1,5 +1,10 @@
 pipeline {
-    agent {label 'slave'}
+	environment {
+		image = "yuferov/ci-cd-exam:webcalc-v1"
+		credentials = 'docker'
+		dockerimage = ''
+	}
+	agent {label 'slave'}
 
     stages {
         stage('Run tests') {
@@ -16,9 +21,12 @@ pipeline {
 	    }
         }
 	stage ('build docker images') {
-	    agent {
-		docker { image 'yuferov/ci-cd-exam:webcalc-v1' }
-	    }
+		steps {
+			script {
+				docker.withRegistry( '', credentials) {
+				 dockerimage = docker.build image
+			}	
+		}
 	    steps {
 		echo 'Build complete'
 	    }
