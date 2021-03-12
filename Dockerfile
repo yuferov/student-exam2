@@ -2,9 +2,9 @@ FROM centos:7.8.2003
 
 USER root
 
-WORKDIR /
-
 RUN yum install -y python3 python3-pip
+
+ADD /home/jenkins/workspace/ci-pipeline@2 .
 
 WORKDIR /root/webapp
 
