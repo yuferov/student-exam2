@@ -2,9 +2,9 @@ FROM centos:7.8.2003
 
 USER root
 
-RUN yum install -y python3 python3-pip
+RUN yum install -y python3 python3-pip git
 
-COPY /home/jenkins/workspace/ci-pipeline@2/ .
+RUN git clone https://github.com/yuferov/student-exam2.git .
 
 WORKDIR /root/webapp
 
