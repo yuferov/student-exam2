@@ -4,7 +4,7 @@ USER root
 
 RUN yum install -y python3 python3-pip
 
-ADD /home/jenkins/workspace/ci-pipeline@2 .
+ADD /home/jenkins/workspace/ci-pipeline@2/ .
 
 WORKDIR /root/webapp
 
