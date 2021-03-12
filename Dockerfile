@@ -4,7 +4,7 @@ USER root
 
 RUN yum install -y python3 python3-pip git
 
-RUN git clone https://github.com/yuferov/student-exam2.git .
+RUN git clone https://github.com/yuferov/student-exam2.git /root/webapp
 
 WORKDIR /root/webapp
 
