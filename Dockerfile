@@ -8,8 +8,6 @@ RUN yum install -y python3 python3-pip
 
 WORKDIR /root/webapp
 
-ADD https://github.com/yuferov/student-exam2 .
-
 RUN python3 -m venv venv
 ENV PATH="venv/bin/:$PATH"
 RUN pip install -e .
