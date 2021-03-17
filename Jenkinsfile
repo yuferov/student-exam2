@@ -24,6 +24,7 @@ pipeline {
 					docker.withRegistry( '', credentials) {
 						def testbuild = docker.build "${image}:${env.BUILD_TAG}"
 						testbuild.push()
+						testbuild.push("latest")
 					}	
 				}
 			}
