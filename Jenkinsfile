@@ -1,6 +1,6 @@
 pipeline {
 	environment {
-		image = "yuferov/ci-cd-exam:"
+		image = "yuferov/ci-cd-exam"
 		credentials = 'docker'
 	}
 	agent {label 'slave'}
@@ -22,7 +22,7 @@ pipeline {
 			steps {
 				script {
 					docker.withRegistry( '', credentials) {
-						def testbuild = docker.build image:${env.BUILD_TAG}
+						def testbuild = docker.build "${image}:${env.BUILD_TAG}"
 						testbuild.push()
 					}	
 				}
