@@ -3,7 +3,7 @@ pipeline {
 		image = "yuferov/ci-cd-exam"
 		credentials = 'docker'
 	}
-	agent {label 'slave'}
+	agent {label 'agent1'}
 	stages {
 		stage('Run tests') {
 			steps {
