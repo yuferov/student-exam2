@@ -5,7 +5,6 @@ ENV PYTHON=python3
 RUN yum install -y $PYTHON $PYTHON-pip
 
 RUN useradd -g wheel jenkins
-USER jenkins
 
 COPY . /var/webapp
 WORKDIR /var/webapp
