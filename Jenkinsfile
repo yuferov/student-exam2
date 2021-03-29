@@ -5,7 +5,7 @@ pipeline {
 			steps {
 				script {
 					def TestImage = docker.build 'webapp:1.0'
-					TestImage.withRun {c->
+					TestImage.inside {
 						sh "coverage run -m pytest"
 					}
 				}
