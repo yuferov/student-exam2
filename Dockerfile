@@ -15,5 +15,5 @@ ENV LANG=en_US.utf-8
 
 EXPOSE  5000
 
-ENTRYPOINT [ "/bin/bash" ]
-CMD [ "flask", "run", "--host=0.0.0.0" ]
+ENTRYPOINT [ "flask" ]
+CMD [ "run", "--host=0.0.0.0" ]
