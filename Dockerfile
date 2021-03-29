@@ -7,8 +7,7 @@ RUN yum install -y $PYTHON $PYTHON-pip
 COPY . /var/webapp
 WORKDIR /var/webapp
 
-RUN  pip3 install -e . && \
-     useradd -g wheel jenkins
+RUN  useradd -g wheel jenkins
 
 ENV FLASK_APP=js_example
 ENV LANG=en_US.utf-8
