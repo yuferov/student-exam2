@@ -7,7 +7,7 @@ pipeline {
 					def TestImage = docker.build 'webapp:1.0'
 					TestImage.withRun {
 						sh """
-						coverage run -m pytest
+						pip3 install -e '.[test]'
 						"""
 					}
 				}
