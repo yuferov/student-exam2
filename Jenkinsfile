@@ -7,6 +7,9 @@ pipeline {
 					filename 'Dockerfile'
 				}
 			}
+			steps {
+				sh "run whatever stuff you want"
+			}
 		}
 	}
 }
