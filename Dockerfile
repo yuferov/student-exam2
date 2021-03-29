@@ -7,13 +7,13 @@ RUN yum install -y $PYTHON $PYTHON-pip
 COPY . /var/webapp
 WORKDIR /var/webapp
 
-RUN pip3 install -e '.[test]'
-    
+RUN usera
+pip3 install -e '.[test]'
 
 ENV FLASK_APP=js_example
 ENV LANG=en_US.utf-8
 
 EXPOSE  5000
 
-ENTRYPOINT [ "flask" ]
-CMD [ "run", "--host=0.0.0.0" ]
+#ENTRYPOINT [ "flask" ]
+#CMD [ "run", "--host=0.0.0.0" ]
