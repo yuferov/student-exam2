@@ -7,10 +7,7 @@ RUN yum install -y $PYTHON $PYTHON-pip
 COPY . /var/webapp
 WORKDIR /var/webapp
 
-RUN pip3 install -e '.[test]' && \
-    useradd -g wheel jenkins && \
-    chown jenkins:wheel /var/webapp
-RUN chmod -R g+wr /usr/local/lib/python3.6
+RUN pip3 install -e '.[test]'
     
 
 ENV FLASK_APP=js_example
