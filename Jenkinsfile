@@ -5,7 +5,7 @@ pipeline {
 			steps {
 				script {
 				def TestImage = docker.build "webapp:1.0"
-				TestImage.inside [-u root] {
+				TestImage.inside (-u root) {
 					sh """
 					pip3 install -e '.[test]'
 					"""
