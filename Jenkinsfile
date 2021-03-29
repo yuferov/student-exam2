@@ -6,7 +6,9 @@ pipeline {
 				script {
 					def TestImage = docker.build 'webapp:1.0'
 					TestImage.withRun {
-						sh "ls -la"
+						sh """
+						pip install -e '.[test]'
+						"""
 					}
 				}
 			}
