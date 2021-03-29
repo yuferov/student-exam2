@@ -9,7 +9,7 @@ WORKDIR /var/webapp
 
 RUN pip3 install -e '.[test]' && \
     useradd -g wheel jenkins && \
-    chown wheel:jenkins /var/webapp
+    chown jenkins:wheel /var/webapp
     
 
 ENV FLASK_APP=js_example
