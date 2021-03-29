@@ -5,8 +5,8 @@ pipeline {
 			steps {
 				script {
 					def TestImage = docker.build 'webapp:1.0'
-					TestImage.inside ("--entrypoint='/bin/sh'") {
-						sh "pwd"
+					TestImage.withRun {
+						sh "ls -la"
 					}
 				}
 			}
