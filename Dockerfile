@@ -1,7 +1,5 @@
 FROM centos:7.8.2003
 
-USER root
-
 RUN yum install -y python3 python3-pip
 
 COPY . /var/webapp
