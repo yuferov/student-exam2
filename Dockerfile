@@ -3,14 +3,14 @@ FROM centos:7.8.2003
 ENV PYTHON=python3
 
 RUN yum install -y $PYTHON $PYTHON-pip && \
-    useradd -g wheel jenkins
+    useradd -g wheel docker
 
-USER jenkins
+USER docker
 
 COPY . /var/webapp
 WORKDIR /var/webapp
 
-RUN pip3 install --user jenkins -e .
+RUN pip3 install --user docker -e .
 
 ENV FLASK_APP=js_example
 ENV LANG=en_US.utf-8
