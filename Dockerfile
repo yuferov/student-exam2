@@ -7,7 +7,7 @@ RUN yum install -y python3 python3-pip
 COPY . /var/webapp
 WORKDIR /var/webapp
 
-RUN  pip3 install -e .
+RUN  pip3 install -e . && \
      useradd -MG docker jenkins
 
 ENV FLASK_APP=js_example
