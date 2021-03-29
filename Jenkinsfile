@@ -5,7 +5,7 @@ pipeline {
 			steps {
 				script {
 				def TestImage = docker.build 'webapp:1.0'
-				TestImage.run {
+				TestImage.withRun {
 					sh "overage run -m pytest"
 					}
 				}
