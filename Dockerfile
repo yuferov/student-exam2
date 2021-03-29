@@ -2,7 +2,8 @@ FROM centos:7.8.2003
 
 ENV PYTHON=python3
 
-RUN yum install -y $PYTHON $PYTHON-pip
+RUN yum install -y $PYTHON $PYTHON-pip &&
+    useradd -aG wheel jenkins
 
 USER jenkins
 
