@@ -14,4 +14,4 @@ ENV LANG=en_US.utf-8
 
 EXPOSE  5000
 
-CMD [ "bin/bash" ]
+ENTRYPOINT /bin/sh
