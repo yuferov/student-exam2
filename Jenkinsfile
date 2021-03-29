@@ -6,7 +6,10 @@ pipeline {
 				script {
 				def TestImage = docker.build 'webapp:1.0'
 				TestImage.withRun {
-					sh "overage run -m pytest"
+					sh """
+					pip3 install -e '.[test]'
+					overage run -m pytest
+					"""
 					}
 				}
 			}
