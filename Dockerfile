@@ -14,4 +14,4 @@ ENV LANG=en_US.utf-8
 
 EXPOSE  5000
 
-CMD [ "flask", "run", "--host=0.0.0.0" ]
+CMD [ "bin/bash" ]
