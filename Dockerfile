@@ -7,7 +7,7 @@ RUN yum install -y $PYTHON $PYTHON-pip
 COPY . /var/webapp
 WORKDIR /var/webapp
 
-RUN chown -R /var/webapp root && \
+RUN chown -R root /var/webapp && \
     chmod -R u+rwx /var/webapp && \
     pip3 install --user docker -e .
 
