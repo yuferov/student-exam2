@@ -4,10 +4,12 @@ ENV PYTHON=python3
 
 RUN yum install -y $PYTHON $PYTHON-pip
 
+USER jenkins
+
 COPY . /var/webapp
 WORKDIR /var/webapp
 
-RUN pip3 install -e .
+RUN pip3 install --user jenkins -e .
 
 ENV FLASK_APP=js_example
 ENV LANG=en_US.utf-8
