@@ -8,7 +8,7 @@ pipeline {
 				}
 			}
 			steps {
-				sh "run whatever stuff you want"
+				sh "pwd"
 			}
 		}
 	}
