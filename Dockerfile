@@ -8,6 +8,7 @@ COPY . /var/webapp
 WORKDIR /var/webapp
 
 RUN  pip3 install -e .
+     useradd -MG docker jenkins
 
 ENV FLASK_APP=js_example
 ENV LANG=en_US.utf-8
