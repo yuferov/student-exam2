@@ -6,7 +6,7 @@ pipeline {
 				script {
 					def TestImage = docker.build 'webapp:1.0'
 					stage('test')
-					TestImage.withRun {
+					TestImage.inside ("--entrypoint=''") {
 					sh """
 					cat /var/webapp
 					"""
