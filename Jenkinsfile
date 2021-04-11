@@ -8,7 +8,7 @@ pipeline {
 					TestImage.withRun {
 					sh """
 					pip3 install --user docker -e '.[test]'
-					pwd
+					coverage run -m pytest ./setup.py
 					"""
 					}	
 				}	
