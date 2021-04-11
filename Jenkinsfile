@@ -8,7 +8,7 @@ pipeline {
 					stage('test')
 					TestImage.inside ("--entrypoint=''") {
 					sh """
-					cat /var/webapp
+					pip install -e '.[test]'
 					"""
 					}	
 				}	
