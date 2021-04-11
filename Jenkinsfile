@@ -7,7 +7,7 @@ pipeline {
 					def TestImage = docker.build 'webapp:1.0'
 					TestImage.withRun {
 					sh """
-					pip3 install --user root -e '.[test]'
+					pip3 install --user docker -e '.[test]'
 					"""
 					}	
 				}	
