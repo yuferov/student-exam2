@@ -3,13 +3,13 @@ FROM centos:7.8.2003
 ENV PYTHON=python3
 
 RUN yum install -y $PYTHON $PYTHON-pip
-RUN useradd -u 1000 -U jenkins && \
-    chown -R jenkins:jenkins /usr/local/lib/python3.6
 
 COPY . /var/webapp
 WORKDIR /var/webapp
 
 RUN pip3 install --user docker -e .
+RUN useradd -u 1000 -U jenkins && \
+    chown -R jenkins:jenkins /usr/local/lib/python3.6
 
 ENV FLASK_APP=js_example
 ENV LANG=en_US.utf-8
