@@ -5,13 +5,17 @@ pipeline {
 			steps {
 				script {
 					def TestImage = docker.build 'webapp:1.0'
-					stage('test')
+					stage('Test')
 					TestImage.inside (" -u 0:0 --entrypoint=''") {
 					sh """
-					pip3 install -e -e '.[test]'
+					pip3 install -e '.[test]'
 					coverage run -m pytest
 					coverage report
 					"""
+					stage('Push image')
+						docker.withregistry('', credentials) {
+							TestImage.push ()
+						}
 					}	
 				}	
 			}
