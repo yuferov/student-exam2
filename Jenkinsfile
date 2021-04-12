@@ -8,7 +8,6 @@ pipeline {
 					stage('test')
 					TestImage.inside (" -u 0:0 --entrypoint=''") {
 					sh """
-					pip3 install -e '.[test]'
 					coverage run -m pytest
 					coverage report
 					"""
