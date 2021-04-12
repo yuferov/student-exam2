@@ -9,7 +9,7 @@ WORKDIR /var/webapp
 
 RUN pip3 install --user docker -e .
 RUN useradd -u 1000 -U jenkins && \
-    chown -R jenkins:jenkins /usr/local/lib/python3.6
+    chown -R jenkins:jenkins /usr/local/lib/
 
 ENV FLASK_APP=js_example
 ENV LANG=en_US.utf-8
