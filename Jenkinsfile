@@ -6,7 +6,7 @@ pipeline {
 				script {
 					def TestImage = docker.build 'webapp:1.0'
 					stage('test')
-					TestImage.inside ("--entrypoint=''") {
+					TestImage.inside (" -u root:root --entrypoint=''") {
 					sh """
 					pip3 install -e '.[test]'
 					coverage run -m pytest
