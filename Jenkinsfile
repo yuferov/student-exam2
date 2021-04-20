@@ -1,5 +1,6 @@
 pipeline {
 	environment {
+		image = "yuferov/ci-cd-exam"
 		credentials = 'yuferov-dockerhub'
 	}
 	agent {label 'jenkins-slave1'}
@@ -8,7 +9,7 @@ pipeline {
 			steps {
 				script {
 					docker.withRegistry( '', credentials) {
-						def TestImage = docker.build 'yuferov/ci-cd-exam:1.0'
+						def TestImage = docker.build "${image}:${env.BUILD_TAG}"
 						stage('Test')
 						TestImage.inside (" -u 0:0 --entrypoint=''") {
 						sh """
@@ -19,6 +20,7 @@ pipeline {
 						}
 						stage('Push')
 						TestImage.push()
+						TestImage.push('latest')
 					}	
 				}	
 			}
