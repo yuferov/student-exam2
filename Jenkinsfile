@@ -1,4 +1,7 @@
 pipeline {
+	environment {
+		credentials = 'yuferov-dockerhub'
+	}
 	agent {label 'jenkins-slave1'}
 	stages {
 		stage('Build') {
