@@ -7,6 +7,7 @@ pipeline {
 		stage('Build') {
 			steps {
 				script {
+					docker.withregistry('', credentials) {
 					def TestImage = docker.build 'webapp:1.0'
 					stage('Test')
 					TestImage.inside (" -u 0:0 --entrypoint=''") {
@@ -16,8 +17,7 @@ pipeline {
 					coverage report
 					"""
 					stage('Push image')
-						docker.withregistry('', credentials) {
-							TestImage.push ()
+					TestImage.push ()
 						}
 					}	
 				}	
