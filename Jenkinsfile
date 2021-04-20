@@ -7,8 +7,8 @@ pipeline {
 		stage('Build') {
 			steps {
 				script {
-					docker.withRegistry( 'https://hub.docker.com/repository/docker/yuferov/ci-cd-exam', credentials) {
-						def TestImage = docker.build 'webapp:1.0'
+					docker.withRegistry( 'https://hub.docker.com/', credentials) {
+						def TestImage = docker.build 'yuferov/ci-cd-exam:1.0'
 						stage('Test')
 						TestImage.inside (" -u 0:0 --entrypoint=''") {
 						sh """
