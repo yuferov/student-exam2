@@ -16,8 +16,6 @@ pipeline {
 						coverage run -m pytest
 						coverage report
 						"""
-						stage('Push image')
-						Image.push ('webapp:1.0')
 						}
 					}	
 				}	
