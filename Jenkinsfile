@@ -7,7 +7,7 @@ pipeline {
 		stage('Build') {
 			steps {
 				script {
-					docker.withregistry( '', credentials) {
+					docker.withRegistry( '', credentials) {
 						def TestImage = docker.build 'webapp:1.0'
 						stage('Test')
 						TestImage.inside (" -u 0:0 --entrypoint=''") {
