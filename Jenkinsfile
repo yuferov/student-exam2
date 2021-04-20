@@ -17,7 +17,7 @@ pipeline {
 						coverage report
 						"""
 						stage('Push image')
-						TestImage.push ('webapp:1.0')
+						Image.push ('webapp:1.0')
 						}
 					}	
 				}	
