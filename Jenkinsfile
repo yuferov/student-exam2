@@ -16,6 +16,7 @@ pipeline {
 						coverage run -m pytest
 						coverage report
 						"""
+						TestImage.push()
 						}
 					}	
 				}	
