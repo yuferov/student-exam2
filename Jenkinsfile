@@ -16,9 +16,9 @@ pipeline {
 						coverage run -m pytest
 						coverage report
 						"""
+						}
 						stage('Push')
 						TestImage.push()
-						}
 					}	
 				}	
 			}
